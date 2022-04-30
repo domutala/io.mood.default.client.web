@@ -1,0 +1,161 @@
+.btn {
+  min-width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 0.4em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  line-height: 1;
+  padding: 0 10px;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(var(--primary), 1);
+    border-radius: inherit;
+    opacity: 0;
+  }
+
+  * {
+    color: rgba(var(--dark), 1);
+    fill: rgba(var(--dark), 1);
+  }
+
+  > * {
+    line-height: 1;
+    position: relative;
+
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+
+    &:not(i) {
+      font-size: 80%;
+    }
+  }
+
+  .spin {
+    background-color: rgba(var(--primary), 1);
+    color: rgba(var(--white), 1);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 16em;
+    font-size: 50%;
+    margin: 0;
+    height: 13px;
+    min-width: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0.05;
+    }
+
+    * {
+      opacity: 1;
+    }
+  }
+
+  &.shine {
+    &::before {
+      opacity: 0.15;
+    }
+
+    * {
+      opacity: 1;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+
+      * {
+        opacity: 1;
+        color: rgba(var(--white), 1);
+        fill: rgba(var(--white), 1);
+      }
+    }
+  }
+
+  &.opac {
+    color: rgba(var(--white), 1);
+
+    &::before {
+      opacity: 1;
+    }
+
+    * {
+      color: rgba(var(--white), 1);
+      fill: rgba(var(--white), 1);
+      opacity: 1;
+    }
+
+    &:hover {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(var(--white), 1);
+        border-radius: inherit;
+        opacity: 0.1;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+
+      * {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.round {
+    border-radius: 16em;
+  }
+
+  &.danger {
+    &::before {
+      background-color: rgba(var(--danger), 1);
+    }
+  }
+
+  &.success {
+    &::before {
+      background-color: rgba(var(--success), 1);
+    }
+  }
+
+  &.sm {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 5px;
+
+    > * {
+      font-size: 10px;
+    }
+  }
+
+  &:disabled,
+  &.disable {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
